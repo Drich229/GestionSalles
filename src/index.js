@@ -1,17 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import { createRoot } from 'react-dom/client'; // Importez createRoot
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './context/AuthContext'; // Importez AuthProvider
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Sélectionnez l'élément racine de votre application
+const container = document.getElementById('root');
+
+// Créez une racine React
+const root = createRoot(container);
+
+// Rendez votre application
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
