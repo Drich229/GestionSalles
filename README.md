@@ -26,3 +26,5 @@ npm install
 
 3. Démarrer l'application :
 npm start
+
+Assurez-vous d'avoir le backend déjà lancé
