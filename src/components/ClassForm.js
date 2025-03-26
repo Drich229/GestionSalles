@@ -1,43 +1,34 @@
-import React, { useState } from 'react';
-import { TextField, Button, Box, MenuItem, InputLabel, FormControl, Select } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { TextField, Button, Box } from '@mui/material';
 
-const ClassForm = ({ classData, onSubmit, rooms = [] }) => {
-  const [formData, setFormData] = useState({
-    name: classData?.name || '',
-    room_id: classData?.room_id || ''
-  });
+const ClassForm = ({ classe, onSubmit }) => {
+  const [name, setName] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  useEffect(() => {
+    if (classe) {
+      setName(classe.name);
+    } else {
+      setName('');
+    }
+  }, [classe]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    onSubmit({ name });
   };
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
       <TextField
-        name="name"
         label="Nom de la classe"
-        value={formData.name}
-        onChange={handleChange}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         fullWidth
         margin="normal"
         required
       />
-
-      <Button 
-        type="submit" 
-        variant="contained" 
-        sx={{ mt: 2 }}
-      >
-        {classData ? 'Modifier' : 'Créer'}
+      <Button type="submit" variant="contained" sx={{ mt: 2 }}>
+        {classe ? 'Modifier' : 'Ajouter'}
       </Button>
     </Box>
   );

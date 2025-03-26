@@ -49,27 +49,13 @@ const ClassList = () => {
   };
 
   const handleSubmit = async (classData) => {
-    try {
-      if (editingClass) {
-        // Envoyez toutes les données nécessaires
-        const updateData = {
-          name: classData.name,
-          room_id: classData.room_id || null,
-          start_time: classData.start_time || null,
-          end_time: classData.end_time || null
-        };
-        await classesService.updateClass(editingClass.id, updateData);
-      } else {
-        await classesService.addClass({
-          name: classData.name,
-          room_id: classData.room_id || null
-        });
-      }
-      setEditingClass(null);
-      fetchData();
-    } catch (error) {
-      console.error("Erreur lors de la sauvegarde:", error);
+    if (editingClass) {
+      await classesService.updateClass(editingClass.id, classData);
+    } else {
+      await classesService.addClass(classData);
     }
+    setEditingClass(null);
+    fetchData();
   };
 
   const openAssignDialog = (cls) => {
@@ -128,7 +114,7 @@ const ClassList = () => {
 
   return (
     <div>
-      <ClassForm classData={editingClass} onSubmit={handleSubmit} rooms={rooms} />
+      <ClassForm classe={editingClass} onSubmit={handleSubmit} rooms={rooms} />
       
       <TableContainer component={Paper}>
         <Table>
