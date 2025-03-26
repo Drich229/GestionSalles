@@ -19,7 +19,7 @@ Une application pour gérer les salles de cours et les assignations
 ## Installation
 
 1. Cloner le dépôt :
-git clone https://github.com/votre-utilisateur/votre-repo.git
+git clone https://github.com/Drich229/GestionSalles.git
 
 2. Installer les dépendances :
 npm install
