@@ -6,7 +6,7 @@ Une application pour gérer les salles de cours et les assignations
 
 - Authentification des utilisateurs
 - Gestion des salles
-- Gestion des cours
+- Gestion des classes(groupes pédagogiques)
 - Profil utilisateur
 
 ## Technologies
