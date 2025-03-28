@@ -13,7 +13,7 @@ const Footer = () => {
       }}
     >
       <Typography variant="body1">
-        © 2023 Plateforme de gestion des salles de cours. Tous droits réservés.
+        © 2025 Plateforme de gestion des salles de cours. Tous droits réservés.
       </Typography>
     </Box>
   );
