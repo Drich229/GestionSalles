@@ -12,7 +12,7 @@ const Navbar = () => {
         {/* Partie gauche */}
         <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
           <Typography variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
-            Gestion des Salles de Cours
+          ClassManager
           </Typography>
           <Button onClick={logout} color="inherit" component={Link} to="/" sx={{ ml: 2 }}>
             Accueil
