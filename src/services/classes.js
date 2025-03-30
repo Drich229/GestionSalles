@@ -15,7 +15,7 @@ const addClass = (classData) => {
 };
 
 const updateClass = (id, classData) => {
-  return axios.put(`${API_URL}/classes/${id}`, classData, {
+  return axios.patch(`${API_URL}/classes/${id}`, classData, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
